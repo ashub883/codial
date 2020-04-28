@@ -1,0 +1,44 @@
+body{
+    text-align: center;
+    .signin{
+        margin: 6%;
+    h1{
+        font-family:Arial, Helvetica, sans-serif;
+        color: skyblue;
+        font-size: 60px;
+        
+    }
+    form{
+        input {
+            border-style: none;
+            outline: none;
+            width: 20%;
+            margin-top: 4px;
+            
+            
+        }
+        input:hover{
+            border-bottom: 1px solid #eeeeee;
+        }
+        ::placeholder{
+            font-size: large;
+            color: lightgrey;
+        }
+        button{
+            width:8%;
+            height:4%;
+            background-color: skyblue;
+            color: white;
+            border-radius:5px;
+            border-style: none;
+            padding: 2px;
+            font-size: medium;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-top: 3px;
+
+        }
+        
+
+    }
+}
+}

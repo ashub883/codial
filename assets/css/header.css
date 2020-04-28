@@ -1,0 +1,42 @@
+header {
+  margin-left: 3px;
+  width: 100%;
+  height: 7%;
+  display: flex;
+  justify-content: space-between;
+  background-color: lightskyblue; }
+  header h3 {
+    color: white;
+    margin: 0;
+    font-size: x-large;
+    margin: 11px 8px 4px 8px; }
+  header ul {
+    list-style: none;
+    margin: 0; }
+    header ul .sign-in {
+      margin: 11px 8px 4px 8px; }
+      header ul .sign-in li span {
+        color: white;
+        font-family: sans-serif;
+        font-weight: 200;
+        font-size: 20px; }
+      header ul .sign-in li {
+        display: inline;
+        margin-right: 5px; }
+        header ul .sign-in li a {
+          color: white;
+          text-decoration: none;
+          font-family: sans-serif;
+          font-weight: 200;
+          font-size: 20px; }
+    header ul .not-sign-in {
+      margin: 11px 8px 4px 8px; }
+      header ul .not-sign-in li {
+        display: inline;
+        margin-right: 5px; }
+        header ul .not-sign-in li a {
+          color: white;
+          text-decoration: none;
+          font-family: sans-serif;
+          font-weight: 200;
+          font-size: 20px; }

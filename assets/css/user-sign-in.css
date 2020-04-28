@@ -1,0 +1,29 @@
+body {
+  text-align: center; }
+  body .signin {
+    margin: 6%; }
+    body .signin h1 {
+      font-family: Arial, Helvetica, sans-serif;
+      color: skyblue;
+      font-size: 60px; }
+    body .signin form input {
+      border-style: none;
+      outline: none;
+      width: 20%;
+      margin-top: 4px; }
+    body .signin form input:hover {
+      border-bottom: 1px solid #eeeeee; }
+    body .signin form ::placeholder {
+      font-size: large;
+      color: lightgrey; }
+    body .signin form button {
+      width: 8%;
+      height: 4%;
+      background-color: skyblue;
+      color: white;
+      border-radius: 5px;
+      border-style: none;
+      padding: 2px;
+      font-size: medium;
+      font-family: Arial, Helvetica, sans-serif;
+      margin-top: 3px; }

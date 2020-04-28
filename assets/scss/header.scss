@@ -1,0 +1,62 @@
+header{
+  margin-left: 3px;
+    width:100%;
+    height: 7%;
+    display: flex;
+    justify-content: space-between;
+    background-color:lightskyblue;
+    h3{
+         color: white;
+         margin:0;
+         font-size: x-large;
+         margin: 11px 8px 4px 8px;
+    }
+
+    ul{
+        list-style: none;
+        margin:0;
+        .sign-in{
+
+        margin: 11px 8px 4px 8px;
+        li{
+            span{
+              color: white;
+              font-family: sans-serif;
+                font-weight: 200;
+                font-size:20px;
+
+            }
+        }
+            li{
+                display: inline;
+                
+                margin-right: 5px;
+                a{
+                color:white;
+                text-decoration: none;
+                font-family: sans-serif;
+                font-weight: 200;
+                font-size:20px;
+             }
+
+            }
+        }
+        .not-sign-in{
+           
+            margin: 11px 8px 4px 8px;
+                li{
+                    display: inline;
+                    
+                    margin-right: 5px;
+                    a{
+                    color: white;
+                    text-decoration: none;
+                    font-family: sans-serif;
+                    font-weight: 200;
+                    font-size: 20px;
+                 }
+             }    
+            }   
+            }
+        }
+    

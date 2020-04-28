@@ -1,0 +1,33 @@
+<header>
+<h3>Codial Devlopment</h3>
+  
+    
+    <ul>
+        
+        <% if(locals.user)  { %>
+            <div class="sign-in">
+            <li> <span><%= user.name %> </span></li>
+
+
+            <li>
+                <a href="/users/signout">Sign Out</a>
+            </li>
+        </div>
+
+    <% }else{ %>
+        <div class="not-sign-in"> 
+        <li>
+            <a href="/users/signin">Sign In</a>
+        </li>
+
+        <li>
+            <a href="/users/signup">Sign Up</a>
+        </li>
+
+        </div>
+  
+
+
+        <% } %>
+        </ul>
+</header>
