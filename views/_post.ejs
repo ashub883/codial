@@ -1,4 +1,6 @@
-<li>
+ <li id="post-<%= i._id %>"> 
+
+ <!-- we are adding id to the post becoz when we have to delete this post we use this id-->
     <p>
       <!--- locals.user to check user is signed in and the user who signed is equal to the
          user who created the post -->
@@ -6,34 +8,54 @@
        <% if(locals.user && locals.user.id==i.user.id){%>
         <small>
 
-       <a href="/posts/destroy/<%= i.id %>">X</a>
+       <a  class ="delete-post-button" href="/posts/destroy/<%= i.id %>">X</a>
         </small>
          <%}%>
 
         <%=i.content%>
-
         
 <br>
 <small>
     <%=i.user.name%>
 </small>
+<br>
+
+<small>
+
+ <% if(locals.user){ %>
+
+<a class="toggle-like-button"  data-likes="<%= i.likes.length %>"href="/likes/toggle/?id=<%=i._id %>&type=Post"> 
+
+    <%= i.likes.length %> Likes
+
+    </a>
+
+
+ <% }else { %>
+
+    <%= i.likes.length %> Likes
+
+<% } %>
+
+
+
+</small>
+
     </p>
 
 <div class="post-comments" >
 
 <% if(locals.user){ %>
 
-<form action="/comments/create" method="POST">
-<input type="text" name="content" placeholder="Type here to add comment">
-<input type="hidden" name="post" value="<%= i._id %>">
-<input type="submit" value="Add comments">
-
-
-</form>
+    <form action="/comments/create" id="new-comment-form" method="POST">
+        <input type="text" name="content" placeholder="Type here to add comment">
+        <input type="hidden" name="post" value="<%= i._id %>">
+        <input type="submit" value="Add comments">
+    </form>
 
 <%} %>
 
-<div class="post-comments-lists">
+<div id="post-comments-lists">
 
 <ul id="post-comments-<%= i._id%>">
 

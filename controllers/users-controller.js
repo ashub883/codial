@@ -1,5 +1,6 @@
 const User=require('../models/user');
-
+const fs=require('fs');
+const path=require('path');
 /*module.exports.profile=function(req,res){
      
      if(req.cookies.user_id){
@@ -19,7 +20,7 @@ const User=require('../models/user');
            }
      }         */
 
-     module.exports.profile=function(req,res){
+     module.exports.profile= function(req,res){
 
           User.findById(req.params.id,function(err,user)
           {
@@ -30,10 +31,10 @@ const User=require('../models/user');
                });
           } );
      }
-     module.exports.update=function(req,res)
+     module.exports.update= async function(req,res)
      {
 
-      if(req.user.id == req.params.id)
+      /* if(req.user.id == req.params.id)
       {
 
           User.findByIdAndUpdate(req.params.id,req.body,function(err,user){
@@ -46,8 +47,53 @@ const User=require('../models/user');
           return res.status(401).send('Unauthorised');
       }
 
+ */
+if(req.user.id == req.params.id)
+      {
+       try{
+          
+          let user=await User.findById(req.params.id);
+          User.uploadedAvatar(req,res,function(err){
+               
+               if(err){ console.log('multer error',err)}
 
+               user.name=req.body.name;
+               user.email=req.body.email;
+               //console.log(req.file);
+
+               if(req.file)
+               {
+
+                  //  if(user.avatar)
+                    //{
+                      //   fs.unlinkSync(path.join(__dirname,'..',user.avatar));
+                    //}
+                    user.avatar=User.avatarPath+'/'+ req.file.filename;
+               }                     
+               user.save();
+               return res.redirect('back');
+
+          })
+
+
+       }
+       catch(err)
+       {
+            req.flash('error',err);
+          return res.redirect('back');
+
+       }
+
+      }
+
+      else{
+           req.flash('error','unauthorised');
+          return res.status(401).send('Unauthorised');
+
+      }
+     
      }
+
 
 module.exports.sign_in=function(req,res){
 
@@ -126,6 +172,8 @@ else{
  });
 } */
 module.exports.createSession=function(req,res){
+
+     req.flash('success','Logged in successfully');
         return res.redirect('/');
 
 }
@@ -135,6 +183,8 @@ module.exports.destroyedSession=function(req,res){
 
      // passport gives logout function to request to logout
      req.logout();
+
+     req.flash('success','Logged out successfully');
      return res.redirect('/');
 
 }
