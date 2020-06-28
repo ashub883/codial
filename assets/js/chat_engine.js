@@ -10,7 +10,9 @@ class ChatEngine{
         // this io is a global variable which is given by io cdn script file which we have imported  
        // this will sent e req to server to connect  
        // this fires an event connection on a server     
-        this.socket=io.connect('http://localhost:5000');
+        //this.socket=io.connect('http://localhost:5000');
+
+        this.socket=io.connect('http://34.227.91.113:5000');
 
         if(this.userEmail){
 
@@ -37,8 +39,6 @@ class ChatEngine{
                 console.log('a user joined ',data);
             });
         });
-
-
         // send a message on clicking a message button
         $('#send-message').click(function(){
 
@@ -52,20 +52,14 @@ class ChatEngine{
                     chatroom:'codial'
                 });
             }
-
         });
-
-
         self.socket.on('receive_message',function(data){
 
             console.log('message received',data.message);
 
             let newMessage=$('<li>');
-
            // console.log(newMessage);
             let messageType='other-message';
-
-
             if(data.user_email == self.userEmail)
             {
                 messageType='self-message'
@@ -76,11 +70,8 @@ class ChatEngine{
             newMessage.append($('<sub>',{
                 'html':data.user_email
             }));
-
             newMessage.addClass(messageType);
-
             console.log(newMessage[0]);
-
             $('.chat-message-list').append(newMessage);
 
 
