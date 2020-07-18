@@ -10,7 +10,7 @@ class ChatEngine{
         // this io is a global variable which is given by io cdn script file which we have imported  
        // this will sent e req to server to connect  
        // this fires an event connection on a server     
-      this.socket=io.connect('http://localhost:5000');
+      //this.socket=io.connect('http://localhost:5000');
 
        // this.socket=io.connect('http://34.227.91.113:5000');
 
