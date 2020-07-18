@@ -3,6 +3,9 @@ const env=require('./config/enviroment');
 
 // it is used to stoe the logs in production 
 const logger=require('morgan');
+
+// to allow resource sharing from project
+const cors= require('cors');
 const cookieParser=require('cookie-parser');
 const app=express();
 const port=8000;
@@ -43,6 +46,8 @@ const chatSockets=require('./config/chat_sockets').chatSockets(chatServer);
 chatServer.listen(5000);
 console.log('chat server is listening on port 5000');
 const path=require('path');
+
+app.use(cors());
 
 if(env.name=='development'){
 app.use(sassMiddleware({
